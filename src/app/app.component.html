@@ -7,13 +7,15 @@
     }
   </div>
 </div> -->
-<div class="container">
-  <div *ngFor="let category of getCategories()" class="category-section">
-    <h2>{{ category }}</h2>
-    <div class="row m-5">
-      <div *ngFor="let item of getProductsByCategory(category)" class="col-md-4">
-        <app-cards [item]="item"></app-cards>
+<body>
+  <div class="container">
+    <div *ngFor="let category of getCategories()" class="category-section">
+      <h2>{{ category }}</h2>
+      <div class="row m-5">
+        <div *ngFor="let item of getProductsByCategory(category)" class="col-md-4">
+          <app-cards [item]="item"></app-cards>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>

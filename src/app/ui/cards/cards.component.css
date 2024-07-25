@@ -2,3 +2,10 @@
     display: flex;
     justify-content: center;
 }
+.card-body{
+    background-color: rgb(252, 202, 109);
+}
+.card:hover{
+    transform: skewX(1deg);
+    transition: .4s linear;
+}
