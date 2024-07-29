@@ -1,0 +1,19 @@
+<!-- <p>UCT - {{text | date:'full':''}}</p>
+<p>{{text | date:'full':'+4'}}</p>
+<p appHighlight>hello guys</p> -->
+
+<div class="container">
+    <div *ngFor="let category of getCategories()" class="category-section">
+      <h2>{{ category }}</h2>
+      <div class="row m-5">
+        <div *ngFor="let category of getProductsByCategory(category)" class="col-md-4">
+          @defer {
+            <app-cards [item]="category"></app-cards>
+          } @placeholder (minimum 500ms) {
+            <p style="font-size: 1.5rem;">Loading</p>
+          }
+          <!-- <app-cards [item]="category" (btnClick)="productSelected($event)"></app-cards> -->
+        </div>
+      </div>
+    </div>
+</div>

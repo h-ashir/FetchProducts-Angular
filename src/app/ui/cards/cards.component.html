@@ -1,11 +1,28 @@
-<div class="card" style="height: 40rem;">
+<!-- <div class="card" style="height: 40rem;">
     <img src="{{item.thumbnail}}" class="card-img-top" alt="...">
     <div class="card-body">
       <h5 class="card-title fs-3">{{item.title}}</h5>
       <p class="card-text">{{item.description}}</p>
       <p class="card-text text-danger fw-bold text-center">Price: ${{item.price}}</p>
       <div class="button">
-          <a href="#" class="btn btn-danger fw-bold">Order Now</a>
+           <app-btn text="Order Now" (click)="emitEvent()"></app-btn>
       </div>
     </div>
-</div>
+</div> -->
+
+<!-- <a > -->
+<!-- <div class="card" style="height: 40rem;">  
+  <img src="{{item.thumbnail}}" class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title fs-3">{{item.title}}</h5>
+      <p class="card-text">{{item.description}}</p>
+      <p class="card-text text-danger fw-bold text-center">Price: ${{item.price}}</p>
+      <app-btn text="Order {{item.title}}" (click)="goNextPage()"></app-btn>
+    </div>
+</div> -->
+<!-- </a> -->
+
+<a (click)="goNextPage()">
+  <img src="{{item.thumbnail}}" class="card-img-top" alt="">
+  <h5 class="card-title fs-3">{{item.title}}</h5>
+</a>

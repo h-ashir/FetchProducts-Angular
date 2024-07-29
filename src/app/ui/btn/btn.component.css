@@ -1,0 +1,33 @@
+.btnOrder{
+    background-color: rgb(255, 81, 110);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+}
+.btnOrder:hover{
+    cursor: pointer;
+}
+.style-cart{
+    background-color: rgb(255, 81, 110);
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+}
+.style-add{
+    background-color: green;
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+}

@@ -1,0 +1,26 @@
+@if (isLoading) {
+
+<div *ngIf="item" class="product-details">
+    <h2>{{ item.title }}</h2>
+    <div class="split row">
+        <img class="col" ngSrc="{{item.thumbnail}}" priority width="" height="350" alt="{{ item.title }}">
+        <div class="content col">
+            <p>{{ item.description }}</p>
+            <p class="price">Price: ${{ item.price }}</p>
+             <div class="buy-btn">
+                <!-- @if () {} -->
+                <app-btn [cartBtn]="true" [addBtn]="false" text="Add to cart" (btnClick)="emitEvent()"></app-btn>
+                <app-btn [addBtn]="true" [cartBtn]="false" text="Buy Now" (btnClick)="emitEvent()"></app-btn>
+             </div>
+        </div>
+    </div>
+</div>
+}@else {
+<div class="spinner-div">
+    <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+    </div>
+</div>
+}
+
+  

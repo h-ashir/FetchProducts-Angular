@@ -1,0 +1,28 @@
+h2{
+    font-size: 3rem;
+    text-align: center;
+}
+.split{
+    display: flex;
+    height: 80vh;
+}
+.split img{
+    width: 100%;
+}
+.split .content{
+    margin-top: 100px;
+}
+.price{
+    color: red;
+    font-weight: bold;
+}
+.buy-btn{
+    display: flex;
+    gap: 20px;
+}
+.spinner-div{
+    height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

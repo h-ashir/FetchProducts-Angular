@@ -1,0 +1,35 @@
+/* .parent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+} */
+ h1{
+    text-align: center;
+ }
+.done{
+    text-decoration: line-through;
+}
+.input-section{
+    display: flex;
+    justify-content: center;
+}
+li{
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+ul{
+    list-style-type: none;
+}
+ul button{
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    padding: 3px 8px;
+    border: none;
+    background-color: red;
+}
+ul span{
+    font-size: 2rem;
+}

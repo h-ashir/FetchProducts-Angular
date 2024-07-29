@@ -1,0 +1,22 @@
+<div class="parent">
+    <h1>{{title}}</h1>
+    <!-- <div [ngClass]="{first:true}"></div> -->
+    <div class="input-section">
+        <input type="text" #todoText placeholder={{text}} name="" id="">
+        <button (click)="addTask(todoText.value)">Add</button>
+    </div><br>
+    <ul>
+        <!-- <li *ngFor="let todoItem of toDoList"> -->
+        @for(todoItem of toDoList; track todoItem){
+            <li>
+                <input
+                    type="checkbox"
+                    [(checked)]="todoItem.done"
+                    (change)="toggleCompleted(todoItem.id)"
+                />
+                <span [class.done]="todoItem.done">{{ todoItem.description }}</span>
+                <button (click)="deleteTask(todoItem.id)">Delete</button>
+            </li><br>
+        }
+    </ul>
+</div>

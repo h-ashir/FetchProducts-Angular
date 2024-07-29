@@ -1,0 +1,17 @@
+ul{
+    display: flex;
+    justify-content: space-evenly;
+    list-style: none;
+    background-color: violet;
+    padding: 10px;
+}
+ul li{
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+ul li:hover{
+    cursor: pointer;
+    color: rgb(130, 18, 18);
+    transition: .3s linear;
+    text-decoration: underline  ;
+}
