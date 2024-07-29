@@ -2,3 +2,6 @@
     overflow-x: scroll;
     flex-wrap: nowrap;
 }
+h2{
+    text-align: center;
+}
