@@ -2,17 +2,21 @@ import { NgClass, NgFor } from '@angular/common';
 import { Component, ElementRef, Input } from '@angular/core';
 import { Item } from '../../interfaces/item';
 import { ViewChild } from '@angular/core';
+import {MatTableDataSource, MatTableModule} from '@angular/material/table';
 
 @Component({
   selector: 'app-todo',
   standalone: true,
-  imports: [NgClass],
+  imports: [NgClass, MatTableModule],
   templateUrl: './todo.component.html',
   styleUrl: './todo.component.css'
 })
 export class TodoComponent {
   @Input() text:string='Add task'
   @Input() title: string = 'ToDo List'
+
+  displayedColumns: string[] = ['Done', 'Task', 'Action'];
+  dataSource= new MatTableDataSource<Item>();
 
   toDoList : Item[]=[]
   newTask: string = ''
@@ -22,7 +26,7 @@ export class TodoComponent {
   constructor() { }
 
   ngOnInit() {
-      const storedTodoList = localStorage.getItem('toDoList');
+      const storedTodoList = sessionStorage.getItem('toDoList');
       if (storedTodoList) {
           this.toDoList = JSON.parse(storedTodoList);
       }
@@ -34,26 +38,31 @@ export class TodoComponent {
             description: text.trim(),
             done: false
         };
+        const updateTask = [...this.dataSource.data, newTodoItem]
+        this.dataSource.data = updateTask;
         this.toDoList.push(newTodoItem);
         this.todoInputRef.nativeElement.value = '';
         this.saveTodoList();
+      }
     }
-}
-
-toggleCompleted(id: number) {
-  const toDoItem = this.toDoList.find(item => item.id === id);
-  if (toDoItem) {
-      toDoItem.done = !toDoItem.done;
+    
+    toggleCompleted(id: number) {
+      const toDoItem = this.toDoList.find(item => item.id === id);
+      if (toDoItem) {
+        toDoItem.done = !toDoItem.done;
+        this.saveTodoList();
+      }
+    }
+    
+    deleteTask(id: number): void {
+      // this.toDoList = this.toDoList.filter(item => item.id !== id);
+      const updateTask = this.dataSource.data.filter(item => item.id !== id);
+      this.dataSource.data= updateTask;
+      this.todoInputRef.nativeElement.value = '';
       this.saveTodoList();
-  }
-}
-
-deleteTask(id: number): void {
-    this.toDoList = this.toDoList.filter(item => item.id !== id);
-    this.saveTodoList();
 }
 saveTodoList(): void {
-  localStorage.setItem('toDoList', JSON.stringify(this.toDoList));
+  sessionStorage.setItem('toDoList', JSON.stringify(this.toDoList));
 }
 
 }
